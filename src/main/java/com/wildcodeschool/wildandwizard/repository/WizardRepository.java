@@ -7,25 +7,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public class WizardRepository implements WizardDao {
+public class WizardRepository implements WizardDao{
 	
-	@Autowired
-	@Qualifier("wizard")
-	private Wizard wizard;
+	
 
     private static List<Wizard> wizards = new ArrayList<>(
             Arrays.asList(
                     new Wizard(1L, "Harry", "Potter", new Date(80, 6, 31), "London", "", false)
             )
     );
-
-    @Override
+   
+    
     public Wizard save(Wizard wizard) {
 
         wizard.setId((long) (wizards.size() + 1));
@@ -33,7 +30,6 @@ public class WizardRepository implements WizardDao {
         return wizard;
     }
 
-    @Override
     public Wizard findById(Long id) {
 
         for (Wizard wizard : wizards) {

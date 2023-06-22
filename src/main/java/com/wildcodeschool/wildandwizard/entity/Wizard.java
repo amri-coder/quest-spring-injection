@@ -2,18 +2,26 @@ package com.wildcodeschool.wildandwizard.entity;
 
 import java.sql.Date;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 
-@Component
+@Entity
 public class Wizard {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+	
+	
     private String firstName;
     private String lastName;
     private Date birthday;
     private String birthPlace;
     private String biography;
+    
     private boolean muggle;
 
     public Wizard() {
